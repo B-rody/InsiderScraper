@@ -47,6 +47,7 @@ Once this flow is complete, the fresh SEC data is available for the web applicat
 # The Web Application
 
 The web application includes a header for navigation - the data itself is accessed via the "Insider Buys" dropdown, which includes different formats of organization. One is organized by symbol (the company whose shares were purhcased) and the other is raw transaction table, each of which transation has its own row entry.
+
 ![image](https://user-images.githubusercontent.com/44855384/190000250-b0e17042-5e4e-4d3e-97a7-7200902669ba.png)
 
 Below is a recording showing how one could use the Symbols page. Users can filter by symbol, the number of shares purhcases, number of buyers or purchases, and navigating through the data organized by symbol. Please note the below are just exmples. There are other fields users can filter by, and users can leverage multiple filters at the same time.
@@ -60,6 +61,13 @@ https://user-images.githubusercontent.com/44855384/190001886-a54d932c-bde8-4f17-
 And another showing how you would dig through the symbol data:
 
 https://user-images.githubusercontent.com/44855384/190002079-d279493a-58ea-40f1-bad4-ed7937174b8f.mp4
+
+
+
+Using the navgation header at the top, users can also view raw transaction data. This can be filtered by most of the heaers available in the table. Note that this page also has its own filter section which can be leveraged in the same manner as the previous exmaples provided for the Symbols page. An example is included below:
+
+
+https://user-images.githubusercontent.com/44855384/190002716-30d4031f-bf0f-4d25-939b-2608907933fb.mp4
 
 
 
