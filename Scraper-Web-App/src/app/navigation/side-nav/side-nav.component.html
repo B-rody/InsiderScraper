@@ -1,0 +1,21 @@
+<mat-nav-list>
+    <a mat-list-item routerLink="/" (click)="onSidenavClose()">
+        <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
+    </a>
+    <mat-list-item [matMenuTriggerFor]="trades">
+        <a matline>
+            <mat-icon>attach_money</mat-icon> <span class="nav-caption">Insider Buys</span>
+        </a>
+    </mat-list-item>
+    <mat-menu #trades>
+        <a mat-menu-item routerLink="/data/symbols" (click)="onSidenavClose()">
+            <mat-icon>business</mat-icon> <span class="nav-caption">Symbols</span>
+        </a>
+        <a mat-menu-item routerLink="/data/trades" (click)="onSidenavClose()">
+            <mat-icon>person</mat-icon> <span class="nav-caption">Transactions</span>
+        </a>
+    </mat-menu>
+    <a mat-list-item routerLink="/about" (click)="onSidenavClose()">
+        <mat-icon>info</mat-icon> <span class="nav-caption">About</span>
+    </a>
+</mat-nav-list>

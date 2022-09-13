@@ -1,0 +1,104 @@
+
+<app-transaction-filter></app-transaction-filter>
+ 
+<div *ngIf="!loading">
+    <div class="mr-auto ml-auto table sm:hidden
+    text-base">
+        <div class="table-row-group" *ngFor="let transaction of transactionData">
+            <div class="table-row bg-secondary">
+                <div class="table-cell py-1 px-1 border-primary border-l-4 border-t-4 border-r-4"
+                style="cursor:pointer" (click)="sortColumn('symbol')">Symbol</div>
+                <div class="table-cell py-1 px-1 border-primary border-t-4 border-r-4">{{transaction.symbol}}</div>
+            </div>
+            <div class="table-row bg-secondary">
+                <div class="table-cell py-1 px-1 border-primary border-l-4 border-t-4 border-r-4">Name</div>
+                <div class="table-cell py-1 px-1 border-primary border-t-2 border-r-4">{{transaction.traderName}}</div>
+            </div>
+            <div class="table-row bg-secondary">
+                <div class="table-cell py-1 px-1 border-primary border-l-4 border-t-4 border-r-4">Titles</div>
+                <div class="table-cell py-1 px-1 border-primary border-t-2 border-r-4">
+                    <ol>
+                        <li *ngFor="let title of transaction.traderTitles">
+                            {{title}}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="table-row bg-secondary">
+                <div class="table-cell py-1 px-1 border-primary border-l-4 border-t-4 border-r-4"
+                style="cursor:pointer" (click)="sortColumn('date')">Date</div>
+                <div class="table-cell py-1 px-1 border-primary border-t-2 border-r-4">{{transaction.tradeData.transactionDateString}}</div>
+            </div>
+            <div class="table-row bg-secondary">
+                <div class="table-cell py-1 px-1 border-primary border-l-4 border-t-4 border-r-4"
+                style="cursor:pointer" (click)="sortColumn('shares')"># Shares</div>
+                <div class="table-cell py-1 px-1 border-primary border-t-2 border-r-4">{{transaction.tradeData.numberOfSharesTransactedString}}</div>
+            </div>
+            <div class="table-row bg-secondary">
+                <div class="table-cell py-1 px-1 border-primary border-l-4 border-t-4 border-r-4"
+                style="cursor:pointer" (click)="sortColumn('value')">$ Value</div>
+                <div class="table-cell py-1 px-1 border-primary border-t-2 border-r-4">{{transaction.tradeData.transactionValueString}}</div>
+            </div>
+            <div class="table-row bg-secondary">
+                <div class="table-cell py-1 px-1 border-primary border-l-4 border-t-4 border-r-4 border-b-4"
+                style="cursor:pointer" (click)="sortColumn('change')">Change</div>
+                <div class="table-cell py-1 px-1 border-primary border-t-2 border-r-4 border-b-4">%{{transaction.tradeData.percentOwnershipChange}}</div>
+            </div>
+            <div class="mb-4"></div>
+        </div>
+    </div>
+    
+    <div class=" mr-auto ml-auto hidden sm:visible sm:table
+    text-xs
+    md:text-base
+    xl:text-lg">
+        <div class="table-row-group">
+            <div class="table-row bg-secondary">
+                <div class="table-cell py-1 px-1 border-primary border-l-4 border-t-4 border-b-4
+                max-w-min" style="cursor:pointer"
+                (click)="sortColumn('symbol')">Symbol</div>
+                <div class="table-cell py-1 px-1 border-primary border-l-2 border-t-4 border-b-4">Name</div>
+                <div class="table-cell py-1 px-1 border-primary border-l-2 border-t-4 border-b-4
+                w-20">Titles</div>
+                <div class="table-cell py-1 px-1 border-primary border-l-2 border-t-4 border-b-4"
+                style="cursor:pointer"
+                (click)="sortColumn('date')">Date</div>
+                <div class="table-cell py-1 px-1 border-primary border-l-2 border-t-4 border-b-4
+                max-w-min"
+                style="cursor:pointer"
+                (click)="sortColumn('shares')"># Shares</div>
+                <div class="table-cell py-1 px-1 border-primary border-l-2 border-t-4 border-b-4
+                max-w-min"
+                style="cursor:pointer"
+                (click)="sortColumn('value')">$ Value</div>
+                <div class="table-cell py-1 px-1 border-primary border-l-2 border-t-4 border-r-4 border-b-4 b
+                max-w-min"
+                style="cursor:pointer"
+                (click)="sortColumn('change')">Change</div>
+            </div>
+            <div *ngFor="let transaction of transactionData" class="table-row  bg-secondary">
+                <div class="table-cell py-1 px-1 border-primary border-l-4 border-b-2
+                max-w-min">{{transaction.symbol}}</div>
+                <div class="table-cell py-1 px-1 border-primary border-l-2 border-b-2">{{transaction.traderName}}</div>
+                <div class="table-cell py-1 px-1 border-primary border-l-2 border-b-2
+                w-20">
+                    <ol>
+                        <li *ngFor="let title of transaction.traderTitles">
+                            {{title}}
+                        </li>
+                    </ol>
+                </div>
+                <div class="table-cell py-1 px-1 border-primary border-l-2 border-b-2">{{transaction.tradeData.transactionDateString}}</div>
+                <div class="table-cell py-1 px-1 border-primary border-l-2 border-b-2
+                max-w-min">{{transaction.tradeData.numberOfSharesTransactedString}}</div>
+                <div class="table-cell py-1 px-1 border-primary border-l-2 border-b-2
+                max-w-min">{{transaction.tradeData.transactionValueString}}</div>
+                <div class="table-cell py-1 px-1 border-primary border-r-4 border-l-2 border-b-2
+                max-w-min">%{{transaction.tradeData.percentOwnershipChange}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="loading">
+    <mat-spinner class="mr-auto ml-auto mt-auto"></mat-spinner>
+</div>

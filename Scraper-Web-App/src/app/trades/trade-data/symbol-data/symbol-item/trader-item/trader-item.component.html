@@ -1,0 +1,113 @@
+<div @slideDownUp class="mb-1 overflow-hidden">
+    <div class="rounded-md mr-auto ml-auto flex flex-col relative
+    w-full
+    md:w-10/12
+    lg:8/12
+    text-xs
+    sm:text-base
+    lg:text-lg">
+        <div class="flex flex-col flex-wrap w-full relative border-primary bg-secondary border-t-4 border-l-4 border-r-4
+        text-xs
+        sm:text-base sm:flex-row
+        lg:text-lg lg:flex-row">
+            <div class="flex flex-row w-full relative
+            sm:w-2/5">
+                <div class="table
+                w-full
+                sm:w-1/2">
+                    <div class="table-row-group">
+                        <div class="table-row">
+                            <div class="table-cell text-center text-blueGray-700">Name</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell text-center text-blueGray-700">{{trader.reportingOwnerName}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table
+                w-full
+                sm:w-1/2">
+                    <div class="table-row-group">
+                        <div class="table-row">
+                            <div class="table-cell text-center text-blueGray-700">Titles</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell text-center text-blueGray-700">{{trader.reportingOwnerTitles}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+   
+            <div class="flex flex-row w-full flex-wrap relative mt-2
+            sm:w-3/5
+            sm:mt-0">
+                <div class="table
+                w-1/3">
+                    <div class="table-row-group">
+                        <div class="table-row">
+                            <div class="table-cell text-center text-blueGray-700">Trades</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell text-center text-blueGray-700">{{trader.numberOfTrades}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table
+                w-1/3">
+                    <div class="table-row-group">
+                        <div class="table-row">
+                            <div class="table-cell text-center text-blueGray-700">Shares</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell text-center text-blueGray-700">{{trader.totalSharesPurchasedString}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table
+                w-1/3">
+                    <div class="table-row-group">
+                        <div class="table-row">
+                            <div class="table-cell text-center text-blueGray-700">Value</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell text-center text-blueGray-700">{{trader.totalValuePurchasedString}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="border-primary bg-accentPrimary border-l-4 border-r-4 border-b-4 w-full 
+        hover:bg-accentSecondary focus:outline-none h-10" (click)="toggleTradesView()">
+        <p *ngIf="viewTradeData">^</p>
+        <p *ngIf="!viewTradeData">v</p>
+        </button>
+    </div>
+    <div @dropdownAnim *ngIf="viewTradeData">
+        <div @slideDownUp class="overflow-hidden rounded-b-md mr-auto ml-auto
+        w-full
+        md:w-10/12
+        lg:8/12
+        text-xs
+        sm:text-base
+        lg:text-lg">
+            <div class="table w-full border-primary bg-secondary border-4">
+                <div class="table-row-group">
+                    <div class="table-row">
+                        <div class="table-cell text-center text-blueGray-700 w-1/5">Date</div>
+                        <div class="table-cell text-center text-blueGray-700 w-1/5">Shares</div>               
+                        <div class="table-cell text-center text-blueGray-700 w-1/5">Price</div>
+                        <div class="table-cell text-center text-blueGray-700 w-1/5">Value</div>
+                        <div class="table-cell text-center text-blueGray-700 w-1/5">Change</div>
+                    </div>
+                    <div *ngFor="let trade of trader.trades" class="table-row w-full">
+                        <div class="table-cell text-center text-blueGray-500 w-1/5">{{trade.transactionDateString}}</div>
+                        <div class="table-cell text-center text-blueGray-500 w-1/5">{{trade.numberOfSharesTransactedString}}</div>
+                        <div class="table-cell text-center text-blueGray-500 w-1/5">{{trade.sharePriceString}}</div>
+                        <div class="table-cell text-center text-blueGray-500 w-1/5">{{trade.transactionValueString}}</div>
+                        <div class="table-cell text-center text-blueGray-500 w-1/5">{{trade.percentOwnershipChange}}%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>

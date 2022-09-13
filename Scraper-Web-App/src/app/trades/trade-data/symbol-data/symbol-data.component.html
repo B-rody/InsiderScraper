@@ -1,0 +1,9 @@
+<app-symbol-filter></app-symbol-filter>
+<div class="column ml-1 mr-1
+md:ml-0 md:mr-0" *ngIf="!loading">
+    <app-symbol-item *ngFor = "let symbolDataItem of symbolData"
+    [symbolItem]="symbolDataItem"></app-symbol-item>
+</div>
+<div *ngIf="loading">
+    <mat-spinner class="mr-auto ml-auto mt-auto"></mat-spinner>
+</div>

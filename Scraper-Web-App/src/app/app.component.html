@@ -1,0 +1,14 @@
+<div class="col">
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav role="navigation">
+            <app-side-nav (sidenavClose)="sidenav.close()"></app-side-nav>
+        </mat-sidenav>
+        <mat-sidenav-content class="bg-background">
+            <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+            <div>
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+    <app-footer></app-footer>
+</div>

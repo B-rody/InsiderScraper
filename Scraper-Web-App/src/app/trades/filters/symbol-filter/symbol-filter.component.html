@@ -1,0 +1,60 @@
+
+<div class=" mr-auto ml-auto
+w-full
+md:w-10/12
+lg:8/12"
+>
+    <div class="flex border-secondary border-2 mt-4 mb-4 max-w-min rounded-md
+    mr-1 ml-1
+    md:mr-0 md:ml-0">
+    <form #symbolDataFilterForm="ngForm" (ngSubmit)="filterSymbolData(symbolDataFilterForm)"
+    class="text-sm
+    sm:text-base
+    lg:text-lg">
+        <div class="grid grid-cols-2 min-w-max justify-items-center px-2 pt-2 gap-2
+        lg:grid-cols-5">
+                
+                <mat-form-field class="w-28">
+                    <input type="text" placeholder="Symbol" name="symbol"
+                    matInput ngModel [matAutocomplete]="auto" [(ngModel)]="searchString" (ngModelChange)="search()">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let symbol of availableSymbols" [value]="symbol">
+                            {{symbol}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <mat-form-field class="w-28">
+                    <mat-label>Min # Shares</mat-label>
+                    <input matInput type="number" name="minShares" min="1" ngModel pattern="[1-9][0-9]{0,9}">
+                </mat-form-field>
+
+                <mat-form-field class="w-28">
+                    <mat-label>Min $ Value</mat-label>
+                    <input matInput type="number" name="minValue" min="1" ngModel pattern="[1-9][0-9]{0,9}">
+                </mat-form-field>
+    
+                <mat-form-field class="w-28">
+                    <mat-label>Min # Buyers</mat-label>
+                    <input matInput type="number" name="minBuyers" min="1" ngModel pattern="[1-9][0-9]{0,2}">
+                </mat-form-field>
+
+                <mat-form-field class="w-28">
+                    <mat-label>Min # Buys</mat-label>
+                    <input matInput type="number" name="minBuyers" min="1" ngModel pattern="[1-9][0-9]{0,3}">
+                </mat-form-field>
+      
+        </div>
+        <div class="mt-4 grid grid-cols-1 grid-rows-2 w-full relative px-2 gap-2 pb-2
+                    md:grid-cols-2 md:grid-rows-1">
+            <button type="submit"
+                class="bg-primary w-full py-2 border-secondary border-2
+                focus:outline-none">Search</button>
+            <button type="button" class="bg-rose-300 w-full py-2 border-rose-500 border-2
+            focus:outline-none"
+                (click)="resetFilter(symbolDataFilterForm)">Reset</button>
+        </div>
+    </form>
+    </div>
+</div>
+

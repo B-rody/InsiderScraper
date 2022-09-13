@@ -1,0 +1,10 @@
+.git*
+.vscode
+local.settings.json
+test
+.venv
+/ScraperScripts
+MockUp.png
+proxies.json
+README.md
+Requests.http
